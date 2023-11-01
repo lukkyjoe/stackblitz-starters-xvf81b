@@ -1,6 +1,3 @@
-
-import dotenv from 'dotenv'
-dotenv.config()
 import React, { useRef, useEffect, useState } from 'react';
 import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
@@ -11,7 +8,7 @@ export default function Map() {
     const map = useRef(null);
     const tokyo = { lng: 139.753, lat: 35.6844 };
     const [zoom] = useState(14);
-    maptilersdk.config.apiKey = process.env.MAPTILER_API_KEY;
+    maptilersdk.config.apiKey = import.meta.env.VITE_MAPTILER_API_KEY;
     useEffect(() => {
         if (map.current) return; // stops map from intializing more than once
       
